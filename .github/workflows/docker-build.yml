@@ -1,0 +1,17 @@
+name: Docker Build Pipeline
+
+on: [push]
+
+jobs:
+  build-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1 - Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Step 2 - Build Docker Image
+        run: docker build -t akshat-devops-app .
+
+      - name: Step 3 - Verify Image Created
+        run: docker images
